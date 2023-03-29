@@ -18,9 +18,9 @@ const index = 4;
 const component = async () => (await import('./_page.svelte-0f1a556e.js')).default;
 const file = '_app/immutable/entry/gallery-_id_-page.svelte.1c3d7d21.js';
 const universal_id = "src/routes/gallery/[id]/+page.ts";
-const imports = ["_app/immutable/entry/gallery-_id_-page.svelte.1c3d7d21.js","_app/immutable/chunks/index.464477ab.js","_app/immutable/chunks/ErrorBox.450e1b91.js","_app/immutable/entry/gallery-_id_-page.ts.567084a6.js","_app/immutable/chunks/index.1de1fe79.js","_app/immutable/chunks/control.e7f5239e.js","_app/immutable/chunks/public.8bedac22.js","_app/immutable/chunks/_page.23a6c49d.js"];
+const imports = ["_app/immutable/entry/gallery-_id_-page.svelte.1c3d7d21.js","_app/immutable/chunks/index.464477ab.js","_app/immutable/chunks/ErrorBox.450e1b91.js","_app/immutable/entry/gallery-_id_-page.ts.bd09817b.js","_app/immutable/chunks/index.1de1fe79.js","_app/immutable/chunks/control.e7f5239e.js","_app/immutable/chunks/public.3a935d9b.js","_app/immutable/chunks/_page.1249cb5c.js"];
 const stylesheets = ["_app/immutable/assets/_page.c9828c7b.css","_app/immutable/assets/ErrorBox.33a1df23.css"];
 const fonts = [];
 
 export { component, file, fonts, imports, index, stylesheets, _page_ts as universal, universal_id };
-//# sourceMappingURL=4-53b8337c.js.map
+//# sourceMappingURL=4-87984ad8.js.map

@@ -1,0 +1,1 @@
+import{e}from"./public.3a935d9b.js";const a=async({fetch:o})=>(console.log(e.PUBLIC_DIR),await(await o(e.PUBLIC_DIR+"/api/index")).json()),s=Object.freeze(Object.defineProperty({__proto__:null,load:a},Symbol.toStringTag,{value:"Module"}));export{s as _,a as l};

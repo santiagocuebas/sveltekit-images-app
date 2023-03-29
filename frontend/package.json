@@ -3,7 +3,7 @@
 	"version": "1.0.0",
 	"type": "module",
 	"scripts": {
-		"start": "node build",
+		"start": "node -r dotenv/config build",
 		"dev": "vite dev",
 		"build": "vite build",
 		"preview": "vite preview",
@@ -25,5 +25,8 @@
 		"tslib": "2.5.0",
 		"typescript": "5.0.2",
 		"vite": "4.2.1"
+	},
+	"dependencies": {
+		"dotenv": "16.0.3"
 	}
 }
