@@ -1,4 +1,3 @@
-
 import express from 'express';
 import morgan from 'morgan';
 import multer from 'multer';
@@ -24,8 +23,8 @@ app.use((_req, res, next) => {
 });
 
 // Uploads Folder
-app.use(multer({ dest: join(__dirname, './uploads/temp') }).single('image'));
-app.use('/uploads', express.static(join(__dirname, './uploads')));
+app.use(multer({ dest: join(__dirname, '../uploads/temp') }).single('image'));
+app.use('/uploads', express.static(join(__dirname, '../uploads')));
 
 // Routes
 app.use('/api', routes);

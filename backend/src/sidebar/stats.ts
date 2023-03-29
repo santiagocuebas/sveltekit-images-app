@@ -1,10 +1,9 @@
-
-import Image from '../models/Image.js';
-import Comment from '../models/Comment.js';
+import { ImageModel } from '../models/Image.js';
+import { CommentModel } from '../models/Comment.js';
 
 export const getStats = async (): Promise<number[]> => {
-	const images = await Image.find();
-	const comments = await Comment.find();
+	const images = await ImageModel.find();
+	const comments = await CommentModel.find();
 
 	const totalImages: number = images.length;
 	const totalComments: number = comments.length;

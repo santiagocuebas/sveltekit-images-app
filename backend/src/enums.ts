@@ -1,4 +1,3 @@
-
 export enum Ext {
   PNG = '.png',
   JPG = '.jpg',

@@ -1,11 +1,8 @@
-
-import Comment from '../models/Comment.js';
+import { CommentModel } from '../models/Comment.js';
 
 export const getComments = async () => {
-	const comments = await Comment
+	return await CommentModel
 		.find()
 		.sort({ createdAt: -1 })
 		.limit(5);
-
-	return comments;
 };

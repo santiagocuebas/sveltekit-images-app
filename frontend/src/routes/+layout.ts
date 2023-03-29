@@ -1,8 +1,9 @@
 import type { LayoutLoad } from "./$types";
 
-export const prerender = true;
-
-export const ssr = true;
+export const config = {
+  runtime: 'edge',
+  regions: 'all'
+}
 
 export const load: LayoutLoad = ({ url }) => {
 	return {

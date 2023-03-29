@@ -1,4 +1,3 @@
-
 import mongoose from 'mongoose';
 import app from './app.js';
 import { PORT, MONGO_URI } from './config.js';

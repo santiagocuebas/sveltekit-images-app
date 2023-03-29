@@ -1,12 +1,9 @@
-
-import Image from '../models/Image.js';
+import { ImageModel } from '../models/Image.js';
 
 export const getImages = async () => {
-	const images = await Image
+	return await ImageModel
 		.find()
-		.sort({ views: 1 })
+		.sort({ views: -1 })
 		.limit(3)
 		.lean({ virtuals: true });
-
-	return images;
 };

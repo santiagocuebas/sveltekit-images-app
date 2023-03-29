@@ -1,4 +1,3 @@
-
 import { ValidationError } from 'express-validator';
 import { Errors } from '../types.js';
 

@@ -1,5 +1,4 @@
-
-import Image from '../models/Image.js';
+import { ImageModel } from '../models/Image.js';
 
 export const randomFilename = async (): Promise<string> => {
 	const validChar = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -9,7 +8,7 @@ export const randomFilename = async (): Promise<string> => {
 		filename += validChar.charAt(Math.floor(Math.random() * validChar.length));
 	}
 
-	const image = await Image.find({ filename });
+	const image = await ImageModel.find({ filename });
 
 	if (!image) {
 		randomFilename();

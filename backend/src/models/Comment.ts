@@ -1,9 +1,8 @@
+import { Schema, model, Types } from 'mongoose';
+import { IComment } from '../types.js';
 
-import { Schema, model } from 'mongoose';
-import { Comment } from '../types.js';
-
-const commentSchema = new Schema<Comment>({
-	imageId: { type: Schema.Types.ObjectId },
+const CommentSchema = new Schema<IComment>({
+	imageId: Types.ObjectId,
 	email: String,
 	name: String,
 	gravatar: String,
@@ -12,4 +11,4 @@ const commentSchema = new Schema<Comment>({
 	createdAt: Date
 });
 
-export default model('Comment', commentSchema);
+export const CommentModel = model<IComment>('Comment', CommentSchema);

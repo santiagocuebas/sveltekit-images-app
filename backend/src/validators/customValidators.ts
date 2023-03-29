@@ -1,4 +1,3 @@
-
 import { CustomValidator } from 'express-validator';
 import { extname } from 'path';
 import { File } from '../types.js';

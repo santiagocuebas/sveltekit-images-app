@@ -1,24 +1,23 @@
-
 import { Result, ValidationError, validationResult } from 'express-validator';
-import { HydratedDocument } from 'mongoose';
 import fs from 'fs-extra';
 import { Md5 } from 'ts-md5';
-import { Direction, Image as ImageInterface, Errors } from '../types.js';
+import { Direction, Errors } from '../types.js';
 import { getErrorMessages } from '../libs/errorMessage.js';
-import Image from '../models/Image.js';
-import Comment from '../models/Comment.js';
+import { ImageModel } from '../models/Image.js';
+import { CommentModel } from '../models/Comment.js';
 
 export const image: Direction = async (req, res) => {
-	const { imageId } = req.params;
-
-	const image: HydratedDocument<ImageInterface> = await Image
-		.findOne({ filename: { $regex: imageId } })
+	const image = await ImageModel
+		.findOneAndUpdate(
+			{ filename: { $regex: req.params.imageId } },
+			{ $inc: { views: 1 } }
+		)
 		.lean({ virtuals: true });
 
 	if (image !== null) {
 		image.views++;
-
-		const comments = await Comment
+		
+		const comments = await CommentModel
 			.find({ imageId: image._id })
 			.sort({ createdAt: -1 })
 			.lean();
@@ -31,36 +30,40 @@ export const image: Direction = async (req, res) => {
 
 export const comment: Direction = async (req, res) => {
 	const errors: Result<ValidationError> = validationResult(req);
-	const image = await Image.findOne({ filename: {
+	const image = await ImageModel.findOne({ filename: {
 		$regex: req.params.imageId
 	} });
 
 	if (errors.isEmpty() && image !== null) {
-		const comment = new Comment(req.body);
-		comment.imageId = image.id;
-		comment.filename = image.filename;
-		comment.gravatar = Md5.hashStr(comment.email);
-		comment.createdAt = new Date();
+		const comment = await new CommentModel({
+			imageId: image.id,
+			name: req.body.name,
+			email: req.body.email,
+			comment: req.body.comment, 
+			filename: image.filename, 
+			gravatar: Md5.hashStr(req.body.email),
+			createdAt: new Date()
+		}).save();
 
-		await comment.save();
-
-		res.json(comment);
-	} else {
-		const message: Errors = getErrorMessages(errors.array());
-		res.json(message);
+		return res.json(comment);
 	}
+		
+	const message: Errors = getErrorMessages(errors.array());
+	return res.json(message);
 };
 
 export const deleteImage: Direction = async (req, res) => {
-	const { imageId } = req.params;
-
-	const image = await Image.findOne({ filename: { $regex: imageId } });
+	const image = await ImageModel.findOne({
+		filename: { $regex: req.params.imageId }
+	});
 
 	if (image !== null) {
-		await fs.unlink(`./src/uploads/${image.filename}`);
-		await Comment.deleteMany({ imageId: image._id });
-		await image.remove();
+		await fs.unlink(`./uploads/${image.filename}`);
+		await CommentModel.deleteMany({ imageId: image._id });
+		await image.deleteOne();
 
-		res.json({ url: '/' });
+		return res.json({ url: '/' });
 	}
+
+	return res.json({});
 };

@@ -1,32 +1,23 @@
-
 import { Router } from 'express';
 import { checkSchema } from 'express-validator';
+import { imageCtrl, homeCtrl } from '../controllers/index.js';
 import {
-	imageCtrl as image,
-	homeCtrl as home
-} from '../controllers/index.js';
-import { schemaUploads, schemaComment } from '../validators/schemasValidators.js';
+	schemaUploads,
+	schemaComment
+} from '../validators/schemasValidators.js';
 
 const router = Router();
 
-router.get('/index', home.index);
+router.get('/index', homeCtrl.index);
 
-router.post(
-	'/upload',
-	checkSchema(schemaUploads),
-	home.upload
-);
+router.post('/upload', checkSchema(schemaUploads), homeCtrl.upload);
 
-router.get('/gallery', home.gallery);
+router.get('/gallery', homeCtrl.gallery);
 
-router.get('/gallery/:imageId', image.image);
+router.get('/gallery/:imageId', imageCtrl.image);
 
-router.post(
-	'/:imageId/comment',
-	checkSchema(schemaComment),
-	image.comment
-);
+router.post('/:imageId/comment', checkSchema(schemaComment), imageCtrl.comment);
 
-router.delete('/:imageId', image.deleteImage);
+router.delete('/:imageId', imageCtrl.deleteImage);
 
 export default router;

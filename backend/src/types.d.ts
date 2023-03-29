@@ -1,43 +1,42 @@
-
 import { Request, Response, NextFunction } from 'express';
 import { Types } from 'mongoose';
 
-export declare type Direction = (
+export type Direction = (
   req: Request,
   res: Response,
-  next?: NextFunction
+  next: NextFunction
 ) => void;
 
-export declare interface File {
-  fieldname: string,
-  originalname: string,
-  encoding: string,
-  mimetype: string,
-  destination: string,
-  filename: string,
-  path: string,
-  size: number
-}
-
-export declare interface Image {
-	title: string,
-	description: string,
-	filename: string,
-	views: number,
-  createdAt: Date,
-  uniqueId: string
-}
-
-export declare interface Comment {
-	imageId: Types.ObjectId,
-	email: string,
-	name: string,
+export interface File {
+  fieldname: string;
+  originalname: string;
+  encoding: string;
+  mimetype: string;
+  destination: string;
   filename: string;
-	gravatar: string,
-	comment: string,
-	createdAt: Date
+  path: string;
+  size: number;
 }
 
-export declare interface Errors {
+export interface IImage {
+  title: string;
+	description: string;
+	filename: string;
+  uniqueId: string;
+	views: number;
+	createdAt: Date;
+}
+
+export interface IComment {
+  imageId: Types.ObjectId;
+	email: string;
+	name: string;
+	gravatar: string;
+	filename: string;
+	comment: string;
+	createdAt: Date;
+}
+
+export interface Errors {
   [index: string]: string;
 }

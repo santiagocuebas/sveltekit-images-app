@@ -1,4 +1,3 @@
-
 import { Schema } from 'express-validator';
 import { imageValidator } from './customValidators.js';
 
