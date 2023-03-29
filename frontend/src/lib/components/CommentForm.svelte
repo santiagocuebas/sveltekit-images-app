@@ -3,6 +3,7 @@
 	import { getFetchingData } from '../services/services.js';
 
 	export let id: string;
+	export let dir: string;
 	export let see: boolean;
 	export let errors: object;
 	export let change: () => void;
@@ -35,7 +36,7 @@
 
 <form
 	class="comment-form"
-	action="http://localhost:4200/api/{id}/comment"
+	action="{dir}/api/{id}/comment"
 	method="POST"
 	on:submit|preventDefault={handleSubmit}
 	in:fly="{{ y: 0, duration: 200 }}"

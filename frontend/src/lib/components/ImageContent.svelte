@@ -3,6 +3,7 @@
 
   export let image: any;
   export let alert: boolean;
+  export let dir: string;
 
 	const changeAlert = () => alert = true;
 </script>
@@ -20,7 +21,7 @@
 			Delete
 		</button>
 	</h1>
-	<img class="image-content" src="http://localhost:4200/uploads/{image.filename}" alt="">
+	<img class="image-content" src="{dir}/uploads/{image.filename}" alt="">
 	{#if image.description}
 	<div class="image-description">
 		{image.description}

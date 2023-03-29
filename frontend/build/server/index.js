@@ -1,5 +1,6 @@
 import { c as create_ssr_component, s as setContext, v as validate_component, m as missing_component, n as noop, a as safe_not_equal } from './chunks/index2-01390e42.js';
 import { e as error, j as json, t as text, R as Redirect, H as HttpError, A as ActionFailure } from './chunks/index-1dce6fb5.js';
+import { s as set_public_env, p as public_env } from './chunks/shared-server-fa63418b.js';
 
 let base = "";
 let assets = base;
@@ -7,10 +8,6 @@ const initial = { base, assets };
 function reset() {
   base = initial.base;
   assets = initial.assets;
-}
-let public_env = {};
-function set_public_env(environment) {
-  public_env = environment;
 }
 function afterUpdate() {
 }
@@ -102,7 +99,7 @@ const options = {
   root: Root,
   service_worker: false,
   templates: {
-    app: ({ head, body, assets: assets2, nonce, env }) => '<!DOCTYPE html>\n<html lang="en">\n	<head>\n		<!-- TITLE -->\n		<title>imgShare</title>\n		<meta charset="utf-8" />\n		<meta name="viewport" content="width=device-width" />\n		<link rel="icon" href="' + assets2 + '/favicon.png" />\n		<!-- NORMALIZE -->\n		<link rel="stylesheet" href="/normalize.css">\n		<!-- GOOGLE FONTS -->\n		<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">\n		<!-- FONT AWESOME -->\n		<script src="https://kit.fontawesome.com/bb2d65548a.js" crossorigin="anonymous"><\/script>\n		' + head + '\n	</head>\n	<body id="body">\n		' + body + "\n	</body>\n</html>\n",
+    app: ({ head, body, assets: assets2, nonce, env }) => '<!DOCTYPE html>\n<html lang="en">\n	<head>\n		<!-- TITLE -->\n		<title>imgShare</title>\n		<meta charset="utf-8" />\n		<meta name="viewport" content="width=device-width" />\n		<link rel="icon" href="' + assets2 + '/favicon.png" />\n		<!-- NORMALIZE -->\n		<link rel="stylesheet" href="/normalize.css">\n		<!-- GOOGLE FONTS -->\n		<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">\n		<!-- FONT AWESOME -->\n		<script src="https://kit.fontawesome.com/bb2d65548a.js" crossorigin="anonymous"><\/script>\n		' + head + '\n	</head>\n	<body id="body">\n		<div style="display: contents">\n			' + body + "\n		</div>\n	</body>\n</html>\n",
     error: ({ status, message }) => '<!DOCTYPE html>\n<html lang="en">\n	<head>\n		<meta charset="utf-8" />\n		<title>' + message + `</title>
 
 		<style>
@@ -163,7 +160,7 @@ const options = {
 		<div class="error">
 			<span class="status">` + status + '</span>\n			<div class="message">\n				<h1>' + message + "</h1>\n			</div>\n		</div>\n	</body>\n</html>\n"
   },
-  version_hash: "65fvi5"
+  version_hash: "iq6gjj"
 };
 function get_hooks() {
   return {};

@@ -26,6 +26,7 @@
 		visible={visible}
 		change={changeBoxErrors}
 		errors={setErrors}
+		dir={data.dir}
 	>
 		<ErrorBox hide={changeBoxErrors} errors={errors} />
 	</Upload>

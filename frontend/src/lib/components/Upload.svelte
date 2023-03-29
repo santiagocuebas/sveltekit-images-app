@@ -4,6 +4,7 @@
 	export let visible: boolean;
 	export let change: () => void;
 	export let errors: (data: ResponseData) => void;
+	export let dir: string;
 
   async function handleSubmit(this: HTMLFormElement) {
     const data = new FormData(this);
@@ -28,7 +29,7 @@
   </div>
   <div class="upload-body">
     <form
-      action="http://localhost:4200/api/upload"
+      action="{dir}/api/upload"
       method="POST"
       enctype="multipart/form-data"
       on:submit|preventDefault={handleSubmit}

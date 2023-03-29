@@ -1,4 +1,5 @@
 import type { LayoutLoad } from "./$types";
+import { env } from '$env/dynamic/public';
 
 export const config = {
   runtime: 'edge',
@@ -7,6 +8,7 @@ export const config = {
 
 export const load: LayoutLoad = ({ url }) => {
 	return {
-		path: url.pathname
+		path: url.pathname,
+		dir: env.PUBLIC_DIR
 	};
 };

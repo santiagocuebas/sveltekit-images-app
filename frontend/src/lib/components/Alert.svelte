@@ -2,12 +2,13 @@
 	import { getFetchingData } from '../services/services.js';
 
   export let id: string;
+  export let dir: string;
   export let alert: boolean;
 
   const changeAlert = () => alert = false;
 
   async function deleteImage(this: HTMLButtonElement) {
-    const url = `http://localhost:4200/api/${id}`;
+    const url = `${dir}/api/${id}`;
     const res = await getFetchingData(url, 'DELETE', null);
 
     window.location.href = res.url;

@@ -21,10 +21,10 @@
 </script>
 
 {#if showAlert}
-	<Alert id={image.uniqueId} bind:alert={showAlert}  />
+	<Alert id={image.uniqueId} bind:alert={showAlert} dir={data.dir}  />
 {/if}
 
-<ImageContent image={image} bind:alert={showAlert} />
+<ImageContent image={image} bind:alert={showAlert} dir={data.dir} />
 
 <ImagePost>
 	<CommentForm
@@ -33,6 +33,7 @@
 		bind:errors={errors}
 		change={changeBoxErrors}
 		addComment={addComment}
+		dir={data.dir}
 	>
 		<ErrorBox bind:errors={errors} hide={changeBoxErrors} />
 	</CommentForm>

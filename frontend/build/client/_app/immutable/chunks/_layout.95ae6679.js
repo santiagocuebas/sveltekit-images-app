@@ -1,1 +1,0 @@
-const t={runtime:"edge",regions:"all"},o=({url:e})=>({path:e.pathname}),a=Object.freeze(Object.defineProperty({__proto__:null,config:t,load:o},Symbol.toStringTag,{value:"Module"}));export{a as _,t as c,o as l};
