@@ -1,8 +1,10 @@
 import express from 'express';
 import morgan from 'morgan';
+import cors from 'cors';
 import multer from 'multer';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
+import { ORIGIN } from './config.js';
 import routes from './routes/index.js';
 // Initializations
 const app = express();
@@ -11,12 +13,11 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 app.use(morgan('dev'));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-// Global Variables
-app.use((_req, res, next) => {
-    res.header('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Methods', '*');
-    next();
-});
+app.use(cors({
+    origin: ORIGIN,
+    methods: 'GET, POST, PUT, DELETE, OPTIONS',
+    credentials: true
+}));
 // Uploads Folder
 app.use(multer({ dest: join(__dirname, '../uploads/temp') }).single('image'));
 app.use('/uploads', express.static(join(__dirname, '../uploads')));
