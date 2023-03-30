@@ -9,19 +9,14 @@
 </script>
 
 <div class="image-container">
-	<h1 class="image-title general-header">
+	<h2>
 		<i class="fa-solid fa-image"></i>
 		{image.title}
-		<button
-			class="image-delete"
-			name="{image.uniqueId}"
-			on:click|preventDefault={changeAlert}
-		>
-			<i class="fa-solid fa-xmark"></i>
+		<button name="{image.uniqueId}" on:click|preventDefault={changeAlert}>
 			Delete
 		</button>
-	</h1>
-	<img class="image-content" src="{dir}/uploads/{image.filename}" alt="">
+	</h2>
+	<img src="{dir}/uploads/{image.filename}" alt="{image.title}">
 	{#if image.description}
 	<div class="image-description">
 		{image.description}
@@ -42,52 +37,49 @@
 <style>
 	.image-container {
 		display: grid;
-		min-width: 450px;
-		width: 30%;
+		grid-auto-rows: min-content;
+		width: 50%;
+		min-width: 500px;
+		max-width: 800px;
 		height: min-content;
-		max-width: 600px;
-		margin: 10px auto;
 		background-color: #ffffff;
 		box-shadow: 0 2px 8px #777777;
 		row-gap: 20px;
 	}
 
-	.image-title {
+	h2 {
 		display: flex;
+		position: relative;
 		align-items: center;
 		width: 100%;
-		margin: 0;
 		padding: 20px;
-		font-size: 48px;
 		background-color: #5383d3;
-		color: hsl(0, 0%, 100%);
+		color: #ffffff;
 		gap: 5px;
 	}
 
-	.image-delete {
-		display: flex;
-		align-items: center;
+	button {
+		position: absolute;
 		width: min-content;
 		height: min-content;
-		margin-left: auto;
+		right: 20px;
 		padding: 8px 24px;
 		border: none;
 		border-radius: 4px;
 		background-color: #e23434;
 		font-size: 20px;
-		font-weight: 600;
+		font-weight: 700;
 		color: #ffffff;
 		cursor: pointer;
 		gap: 5px;
 	}
 
-	.image-delete:hover {
+	button:hover {
 		background-color: #f23434;
 	}
 
-	.image-content {
+	img {
 		width: 100%;
-		padding: 0 20px;
 	}
 
 	.image-description {

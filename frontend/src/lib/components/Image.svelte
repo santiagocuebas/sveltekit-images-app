@@ -1,20 +1,25 @@
 <script lang="ts">
-  export let id: string;
-  export let filename: string;
-  export let alt: string;
+	export let id: string;
+	export let filename: string;
+	export let alt: string;
+	export let dir: string;
 </script>
 
-<div class="gallery-image">
-  <a href="/gallery/{id}">
-    <img src="http://localhost:4200/uploads/{filename}" alt="{alt}">
-  </a>
-</div>
+<a href="/gallery/{id}">
+	<img src="{dir}/uploads/{filename}" alt="{alt}">
+</a>
 
 <style>
-  .gallery-image {
-    width: 240px;
-    height: 240px;
-    overflow: hidden;
-    outline: 1px solid #bbbbbb;
-  }
+	a {
+		width: 240px;
+		height: 240px;
+		box-shadow: 0 0 3px #000000;
+	}
+
+	img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		object-position: center;
+	}
 </style>

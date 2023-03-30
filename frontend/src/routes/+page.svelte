@@ -32,11 +32,11 @@
 	</Upload>
 	<div class="upload-sidebar">
 		<Stats stats={stats} />
-		<ViewedImages images={viewedImages} />
-		<RecentComments comments={recentComments} />
+		<ViewedImages images={viewedImages} dir={data.dir} />
+		<RecentComments comments={recentComments} dir={data.dir} />
 	</div>
 	<div class="upload-recent">
-		<RecentUploads images={images}/>
+		<RecentUploads images={images} dir={data.dir} />
 	</div>
 </div>
 
@@ -44,12 +44,11 @@
 	.principal-container {
 		display: grid;
 		grid-template-columns: repeat(12, minmax(40px, 1fr));
-		grid-auto-rows: min-content;
+		grid-auto-rows: min-content 1fr;
 		min-width: 480px;
 		width: 80%;
 		max-width: 1440px;
 		height: fit-content;
-		margin: 20px auto;
 	}
 
 	.upload-sidebar {

@@ -1,4 +1,3 @@
-
 import { Dates } from '../../enums.js';
 
 export const getFetchingData = async (
@@ -15,21 +14,14 @@ export const getFetchingData = async (
 };
 
 export function handleImage(this: HTMLInputElement) {
-	const reader: FileReader = new FileReader();
-	const sibling = this.nextElementSibling;
-	const parent = this.parentElement;
+	const reader = new FileReader();
+  const files = this.files as FileList;
+	const parent = this.parentElement as HTMLElement;
 
-	if (this.files !== null && sibling !== null) {
-		reader.readAsDataURL(this.files[0]);
-		reader.addEventListener('load', function(this: FileReader) {
-			const url = this.result;
-			if (typeof url === 'string') sibling.setAttribute('src', url);
-		});
-	}
-
-	if (parent !== null) {
-		parent.style.backgroundImage = 'url()';
-	}
+	reader.readAsDataURL(files[0]);
+	reader.addEventListener('load', () => {
+		parent.style.backgroundImage = `url(${reader.result})`;
+	}, false);
 }
 
 export const timeago = (date: Date): string => {

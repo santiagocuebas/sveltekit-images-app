@@ -4,54 +4,33 @@
 	export let comment: any;
 </script>
 
-<div class="comment-container-content">
-	<div class="comment-container-avatar">
-		<img src="http://gravatar.com/avatar/{comment.gravatar}?d=monsterid&s=45" alt="{comment.name}">
-	</div>
-	<div class="comment-content">
-		<div class="comment-name">
-			{comment.name} <sup>.</sup> {comment.email}
-		</div>
-		<div>
-			{comment.comment}
-		</div>
-		<div class="comment-createdat">
-			{timeago(comment.createdAt)}
-		</div>
-	</div>
+<div class="comment">
+	<img
+		src="http://gravatar.com/avatar/{comment.gravatar}?d=monsterid&s=45"
+		alt="{comment.name}"
+	>
+	<div>{comment.name} &#x25CF; {comment.email}</div>
+	<div>{comment.comment}</div>
+	<div class="comment-createdat">{timeago(comment.createdAt)}</div>
 </div>
 
 <style>
-	.comment-container-content {
-		display: flex;
+	.comment {
+		display: grid;
+		grid-template-columns: 45px 1fr;
 		width: 100%;
-		padding: 5px;
-		outline: 1px solid #bbbbbb;
 		border-radius: 4px;
-		gap: 5px;
+		column-gap: 10px;
+		row-gap: 5px;
 	}
 
-	.comment-container-avatar {
-		display: flex;
-		height: 100%;
-		justify-content: center;
-		align-items: center;
-		padding: 10px;
-	}
-
-	.comment-content {
-		display: flex;
-		flex-wrap: wrap;
-		align-items: space-around;
-	}
-
-	.comment-name {
-		width: 100%;
-		height: min-content;
+	img {
+		grid-row: 1 / span 3;
+		box-shadow: 0 0 3px #000000;
 	}
 
 	.comment-createdat {
-		width: 100%;
-		height: min-content;
+		width: max-content;
+		margin-left: auto;
 	}
 </style>

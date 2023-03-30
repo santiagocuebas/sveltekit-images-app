@@ -1,0 +1,1 @@
+import{e as o}from"./public.4b55dbf8.js";const t={runtime:"edge",regions:"all"},r=({url:e})=>({path:e.pathname,dir:o.PUBLIC_DIR}),n=Object.freeze(Object.defineProperty({__proto__:null,config:t,load:r},Symbol.toStringTag,{value:"Module"}));export{n as _,t as c,r as l};

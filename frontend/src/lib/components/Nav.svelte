@@ -1,33 +1,38 @@
-<nav class="nav-container">
-  <a href="/">
-    <img class="nav-logo" src="/imgshare-logo.png" alt="Logo">
-  </a>
-  <nav class="nav-buttons">
-    <slot></slot>
-  </nav>
+<nav>
+	<a href="/">
+		<img src="/imgshare-logo.png" alt="Logo">
+	</a>
+	<div>
+		<slot></slot>
+	</div>
 </nav>
 
 <style>
-  .nav-container {
-    display: flex;
-    position: fixed;
-    align-items: center;
-    width: 100%;
-    min-width: 510px;
-    padding: 10px 20px;
-    top: 0;
-    background-color: #5383d3;
-    z-index: 200;
-  }
+	nav {
+		display: flex;
+		position: fixed;
+		align-items: center;
+		width: 100%;
+		min-width: 530px;
+		padding: 10px 20px;
+		top: 0;
+		background-color: #5383d3;
+		z-index: 200;
+	}
 
-  .nav-buttons {
-    width: max-content;
-    height: min-content;
-    margin-left: auto;
-  }
+	a {
+		width: 160px;
+		height: 40px;
+	}
 
-  .nav-logo {
-    width: 192px;
-    height: 42px;
-  }
+	img {
+		width: 100%;
+		height: 100%;
+	}
+
+	div {
+		display: flex;
+		margin-left: auto;
+		gap: 5px;
+	}
 </style>

@@ -4,13 +4,13 @@ const manifest = {
 	assets: new Set(["favicon.png","imgshare-logo.png","normalize.css","objetive.png"]),
 	mimeTypes: {".png":"image/png",".css":"text/css"},
 	_: {
-		client: {"start":{"file":"_app/immutable/entry/start.b9667133.js","imports":["_app/immutable/entry/start.b9667133.js","_app/immutable/chunks/index.464477ab.js","_app/immutable/chunks/singletons.7bc76a86.js","_app/immutable/chunks/control.e7f5239e.js"],"stylesheets":[],"fonts":[]},"app":{"file":"_app/immutable/entry/app.4eceec01.js","imports":["_app/immutable/entry/app.4eceec01.js","_app/immutable/chunks/index.464477ab.js"],"stylesheets":[],"fonts":[]}},
+		client: {"start":{"file":"_app/immutable/entry/start.9ce6f52e.js","imports":["_app/immutable/entry/start.9ce6f52e.js","_app/immutable/chunks/index.77db86b9.js","_app/immutable/chunks/singletons.1754a371.js","_app/immutable/chunks/control.e7f5239e.js"],"stylesheets":[],"fonts":[]},"app":{"file":"_app/immutable/entry/app.3875da38.js","imports":["_app/immutable/entry/app.3875da38.js","_app/immutable/chunks/index.77db86b9.js"],"stylesheets":[],"fonts":[]}},
 		nodes: [
-			() => import('./chunks/0-7f81beb6.js'),
-			() => import('./chunks/1-a4ce5181.js'),
-			() => import('./chunks/2-fbf40b3c.js'),
-			() => import('./chunks/3-53011bd0.js'),
-			() => import('./chunks/4-87984ad8.js'),
+			() => import('./chunks/0-849f5443.js'),
+			() => import('./chunks/1-807eb0c8.js'),
+			() => import('./chunks/2-b61337bd.js'),
+			() => import('./chunks/3-3f4ae748.js'),
+			() => import('./chunks/4-027b3c92.js'),
 			() => import('./chunks/5-c17bd8f8.js')
 		],
 		routes: [

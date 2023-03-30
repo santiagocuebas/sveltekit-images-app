@@ -2,27 +2,27 @@
   export let stats: number[];
 </script>
 
-<div class="stats-container">
-  <h2 class="stats-paragraph">
+<div>
+  <h2>
     <i class="fa-solid fa-chart-line"></i>
     Stats
   </h2>
-  <p class="stats-paragraph">
+  <p>
     <i class="fa-solid fa-images"></i>
     Images: {stats[0]}
   </p>
-  <p class="stats-paragraph">
+  <p>
     <i class="fa-solid fa-comments"></i>
     Comments: {stats[1]}
   </p>
-  <p class="stats-paragraph">
+  <p>
     <i class="fa-solid fa-eye"></i>
     Views: {stats[2]}
   </p>
 </div>
 
 <style>
-  .stats-container {
+  div {
     display: flex;
     flex-wrap: wrap;
     width: 100%;
@@ -34,8 +34,19 @@
     gap: 10px;
   }
 
-  .stats-paragraph {
+  p {
+    display: flex;
+    align-items: center;
     width: 100%;
     height: min-content;
+    gap: 6px;
+  }
+
+  h2 i {
+    width: 24px;
+  }
+
+  p i {
+    width: 20px;
   }
 </style>

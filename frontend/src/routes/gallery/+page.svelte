@@ -3,52 +3,50 @@
 	import Image from '$lib/components/Image.svelte';
 
 	export let data: PageData;
-
-	let images: any[] = [];
-
-	images = data.images;
 </script>
 
-<div class="secondary-container">
-	<h2 class="gallery-header">
+<div class="gallery-container">
+	<h2>
 		<i class="fa-solid fa-images"></i>
 		Gallery
 	</h2>
-	<div class="gallery-container">
-		{#each images as image}
+	<div>
+		{#each data.images as image}
 			<Image
 				id={image.uniqueId}
 				filename={image.filename}
 				alt={image.title}
+				dir={data.dir}
 			/>
 		{/each}
 	</div>
 </div>
 
 <style>
-	.secondary-container {
-		width: 80%;
-		max-width: 1510px;
-		min-width: 280px;
-		margin: 20px auto;
+	.gallery-container {
+		width: 90%;
+		max-width: 1530px;
+		min-width: 530px;
+		min-height: 830px;
+		background-color: #ffffff;
 		box-shadow: 0 2px 8px #333333;
 	}
 
-	.gallery-header {
-		padding: 10px;
+	h2 {
+		padding: 13px;
 		background-color: #5383d3;
+		font-size: 21px;
 		color: #ffffff;
 	}
 
-	.gallery-container {
+	.gallery-container div {
 		display: grid;
 		grid-template-columns: repeat(auto-fit, 240px);
 		grid-auto-rows: min-content;
 		justify-content: center;
 		width: 100%;
-		min-height: 94%;
+		min-height: min-content;
 		padding: 20px;
-		background-color: #ffffff;
 		gap: 10px;
 	}
 </style>

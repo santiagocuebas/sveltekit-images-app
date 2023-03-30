@@ -41,6 +41,6 @@
 
 <ImageComments comments={comments.length} >
 	{#each comments as comment}
-	<Comment comment={comment}/>
+		<Comment comment={comment}/>
 	{/each}
 </ImageComments>

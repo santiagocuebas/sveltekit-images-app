@@ -4,54 +4,58 @@
 	const showForm = () => visible = !visible;
 </script>
 
-<div class="image-post">
-	<div class="image-comment">
-		<h2 class="image-comment-title">
-			<i class="fa-solid fa-comment"></i> 
-			Comment
-		</h2>
-		<button class="image-comment-show" on:click={showForm}>
+<div>
+	<h2>
+		<i class="fa-solid fa-comment"></i> 
+		Comment
+		<button on:click={showForm}>
 			<i class="fa-solid fa-angle-down"></i>
 		</button>
-	</div>
+	</h2>
 	{#if visible}
 		<slot></slot>
 	{/if}
 </div>
 
 <style>
-	.image-post {
-		min-width: 450px;
-		width: 30%;
+	div {
+		width: 50%;
+		min-width: 500px;
+		max-width: 800px;
 		height: min-content;
-		max-width: 600px;
-		margin: 20px auto;
 		box-shadow: 0 2px 8px #777777;
 		background-color: #ffffff;
 	}
 
-	.image-comment {
+	h2 {
 		display: flex;
+		position: relative;
+		align-items: center;
 		padding: 20px;
 		background-color: #5383d3;
 		color: #ffffff;
+		gap: 5px;
 	}
 
-	.image-comment-show {
+	button {
 		display: flex;
+		position: absolute;
 		justify-content: center;
 		align-items: center;
-		margin-left: auto;
-		padding: 10px;
+		width: 36px;
+		height: 36px;
+		right: 20px;
 		border: none;
 		border-radius: 50%;
 		background-color: #63c187;
-		color: #ffffff;
 		cursor: pointer;
 	}
 
-	.image-comment-title {
-		display: flex;
-		align-items: center;
-		gap: 5px;
-	}</style>
+	button i {
+		width: 100%;
+		height: 16px;
+		border-radius: 50%;
+		font-size: 20px;
+		color: #ffffff;
+	}
+</style>
