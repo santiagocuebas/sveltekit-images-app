@@ -1,9 +1,9 @@
 import type { PageLoad } from './$types';
-import { env } from '$env/dynamic/public';
+import { DIR } from '$lib/services/config.js';
 
 export const load: PageLoad = async ({ fetch }) => {
-  const res = await fetch(env.PUBLIC_DIR + `/api/gallery`);
-  const data = await res.json();
+  const data = await fetch(DIR + `/api/gallery`)
+    .then(res => res.json());
 
   return data;
 };

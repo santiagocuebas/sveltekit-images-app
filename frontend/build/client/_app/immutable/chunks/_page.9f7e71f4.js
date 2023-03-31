@@ -1,0 +1,1 @@
+import{D as e}from"./config.2ded4aa2.js";const o=async({fetch:a})=>await a(e+"/api/gallery").then(t=>t.json()),l=Object.freeze(Object.defineProperty({__proto__:null,load:o},Symbol.toStringTag,{value:"Module"}));export{l as _,o as l};
