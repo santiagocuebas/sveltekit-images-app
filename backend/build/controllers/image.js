@@ -5,11 +5,13 @@ import { getErrorMessages } from '../libs/errorMessage.js';
 import { ImageModel } from '../models/Image.js';
 import { CommentModel } from '../models/Comment.js';
 export const image = async (req, res) => {
+    // Find and update image
     const image = await ImageModel
         .findOneAndUpdate({ filename: { $regex: req.params.imageId } }, { $inc: { views: 1 } })
         .lean({ virtuals: true });
     if (image !== null) {
         image.views++;
+        // Find comments
         const comments = await CommentModel
             .find({ imageId: image._id })
             .sort({ createdAt: -1 })
@@ -19,11 +21,13 @@ export const image = async (req, res) => {
     return res.json(image);
 };
 export const comment = async (req, res) => {
+    // Checking validation errors and if the image exists
     const errors = validationResult(req);
     const image = await ImageModel.findOne({ filename: {
             $regex: req.params.imageId
         } });
     if (errors.isEmpty() && image !== null) {
+        // Create a new comment
         const comment = await new CommentModel({
             imageId: image.id,
             name: req.body.name,
@@ -35,14 +39,17 @@ export const comment = async (req, res) => {
         }).save();
         return res.json(comment);
     }
+    // Generate message errors
     const message = getErrorMessages(errors.array());
     return res.json(message);
 };
 export const deleteImage = async (req, res) => {
+    // Find image
     const image = await ImageModel.findOne({
         filename: { $regex: req.params.imageId }
     });
     if (image !== null) {
+        // Unlink file and delete image and comment
         await fs.unlink(`./uploads/${image.filename}`);
         await CommentModel.deleteMany({ imageId: image._id });
         await image.deleteOne();

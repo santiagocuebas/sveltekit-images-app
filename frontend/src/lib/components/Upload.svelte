@@ -1,10 +1,10 @@
 <script lang="ts">
 	import { getFetchingData, handleImage } from '../services/services.js';
+	import { DIR } from '../services/config.js';
 
 	export let visible: boolean;
 	export let change: () => void;
 	export let errors: (data: ResponseData) => void;
-	export let dir: string;
 
 	async function handleSubmit(this: HTMLFormElement) {
 		const data = new FormData(this);
@@ -26,7 +26,7 @@
 		Upload image
 	</h2>
 	<form
-		action="{dir}/api/upload"
+		action="{DIR}/api/upload"
 		method="POST"
 		enctype="multipart/form-data"
 		on:submit|preventDefault={handleSubmit}

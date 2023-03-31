@@ -11,10 +11,6 @@
 
 	let errors: ResponseData = {};
 	let visible = false;
-	let images: any[] = data.images;
-	let stats: any[] = data.stats;
-	let viewedImages: any[] = data.viewedImages;
-	let recentComments: any[] = data.recentComments;
 
 	const changeBoxErrors = () => visible = !visible;
 	
@@ -22,21 +18,16 @@
 </script>
 
 <div class="principal-container">
-	<Upload
-		visible={visible}
-		change={changeBoxErrors}
-		errors={setErrors}
-		dir={data.dir}
-	>
+	<Upload visible={visible} change={changeBoxErrors} errors={setErrors}>
 		<ErrorBox hide={changeBoxErrors} errors={errors} />
 	</Upload>
 	<div class="upload-sidebar">
-		<Stats stats={stats} />
-		<ViewedImages images={viewedImages} dir={data.dir} />
-		<RecentComments comments={recentComments} dir={data.dir} />
+		<Stats stats={data.stats} />
+		<ViewedImages images={data.viewedImages} />
+		<RecentComments comments={data.recentComments} />
 	</div>
 	<div class="upload-recent">
-		<RecentUploads images={images} dir={data.dir} />
+		<RecentUploads images={data.images} />
 	</div>
 </div>
 

@@ -1,9 +1,9 @@
 <script lang="ts">
 	import { timeago } from '../services/services.js';
+	import { DIR } from '../services/config.js';
 
   export let image: any;
   export let alert: boolean;
-  export let dir: string;
 
 	const changeAlert = () => alert = true;
 </script>
@@ -16,7 +16,7 @@
 			Delete
 		</button>
 	</h2>
-	<img src="{dir}/uploads/{image.filename}" alt="{image.title}">
+	<img src="{DIR}/uploads/{image.filename}" alt="{image.title}">
 	{#if image.description}
 	<div class="image-description">
 		{image.description}

@@ -12,12 +12,7 @@
 	</h2>
 	<div>
 		{#each data.images as image}
-			<Image
-				id={image.uniqueId}
-				filename={image.filename}
-				alt={image.title}
-				dir={data.dir}
-			/>
+			<Image id={image.uniqueId} filename={image.filename} alt={image.title} />
 		{/each}
 	</div>
 </div>

@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { timeago } from '../services/services.js';
+	import { DIR } from '../services/config.js';
 
 	export let comments: any[];
-	export let dir: string;
 </script>
 
 <div class="comment-container">
@@ -15,7 +15,7 @@
 		{#each comments as comment}
 			<div class="comment-content">
 				<img
-					src="{dir}/uploads/{comment.filename}"
+					src="{DIR}/uploads/{comment.filename}"
 					alt="{comment.name}"
 				>
 				<div class="comment-data">{comment.comment}</div>

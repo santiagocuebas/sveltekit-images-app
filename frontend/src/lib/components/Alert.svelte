@@ -1,25 +1,27 @@
 <script lang="ts">
+	import { DIR } from '../services/config.js';
 	import { getFetchingData } from '../services/services.js';
 
   export let id: string;
-  export let dir: string;
   export let alert: boolean;
 
   const changeAlert = () => alert = false;
 
   async function deleteImage(this: HTMLButtonElement) {
-    const url = `${dir}/api/${id}`;
+    const url = `${DIR}/api/${id}`;
     const res = await getFetchingData(url, 'DELETE', null);
 
     window.location.href = res.url;
   }
-</script><div class="alert-container">
-	<div class="alert-content">
-		<p class="alert-paragraph">Are you sure of delete this image?</p>
-		<button class="alert-button cancel" on:click|preventDefault={changeAlert}>
+</script>
+
+<div class="alert-container">
+	<div>
+		<p>Are you sure of delete this image?</p>
+		<button class="cancel" on:click|preventDefault={changeAlert}>
 			Cancel
 		</button>
-		<button class="alert-button accept" on:click|preventDefault={deleteImage}>
+		<button class="accept" on:click|preventDefault={deleteImage}>
 			Accept
 		</button>
 	</div>
@@ -40,7 +42,7 @@
 		z-index: 1000;
 	}
 	
-	.alert-content {
+	.alert-container div {
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: center;
@@ -55,11 +57,11 @@
 		gap: 8px;
 	}
 	
-	.alert-paragraph {
+	p {
 		width: 100%;
 	}
 
-	.alert-button {
+	button {
 		width: fit-content;
 		margin: auto;
 		padding: 8px 24px;

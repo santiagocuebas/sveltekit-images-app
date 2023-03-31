@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { getFetchingData } from '../services/services.js';
+	import { DIR } from '../services/config.js';
 
 	export let id: string;
-	export let dir: string;
 	export let see: boolean;
 	export let errors: object;
 	export let change: () => void;
@@ -34,7 +34,7 @@
 </script>
 
 <form
-	action="{dir}/api/{id}/comment"
+	action="{DIR}/api/{id}/comment"
 	method="POST"
 	on:submit|preventDefault={handleSubmit} 
 >

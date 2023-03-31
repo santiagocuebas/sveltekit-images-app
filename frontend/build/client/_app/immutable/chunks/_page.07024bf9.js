@@ -1,0 +1,1 @@
+import{e}from"./public.e7d98663.js";const t=async({fetch:a})=>await(await a(e.PUBLIC_DIR+"/api/gallery")).json(),s=Object.freeze(Object.defineProperty({__proto__:null,load:t},Symbol.toStringTag,{value:"Module"}));export{s as _,t as l};

@@ -1,12 +1,13 @@
 <script lang="ts">
+	import { DIR } from '../services/config.js';
+
 	export let id: string;
 	export let filename: string;
 	export let alt: string;
-	export let dir: string;
 </script>
 
 <a href="/gallery/{id}">
-	<img src="{dir}/uploads/{filename}" alt="{alt}">
+	<img src="{DIR}/uploads/{filename}" alt="{alt}">
 </a>
 
 <style>

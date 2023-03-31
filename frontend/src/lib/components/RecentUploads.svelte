@@ -1,6 +1,7 @@
 <script lang="ts">
+	import { DIR } from '../services/config.js';
+
 	export let images: any[];
-	export let dir: string;
 </script>
 
 <div class="recent-container">
@@ -12,7 +13,7 @@
 	<div class="recent-images">
 		{#each images as { filename, title, uniqueId }}
 			<a href="/gallery/{uniqueId}">
-				<img src="{dir}/uploads/{filename}" alt="{title}">
+				<img src="{DIR}/uploads/{filename}" alt="{title}">
 			</a>
 		{/each}
 	</div>
