@@ -1,27 +1,28 @@
 # imgShare
-
 imgShare is a web application to share images, comments, and more.
 
 # Environment Variables
-
+### Client
+* `PORT`, the http client port, default is `3000`.
+* `PUBLIC_DIR`, the http server port.
+### Server
 - `PORT` the http server port. By default is `4200`.
 - `MONGODB_URI`, the mongodb database uri.
 - `ORIGEN`, the http client port.
-- `PUBLIC_DIR` the http client port. By default is `3000`.
 
 # Installation
-
 ```
-git clone https://github.com/satiagocuebas/svelte-images
+git clone https://github.com/satiagocuebas/sveltekit-images-app
 cd svelte-images
 cd backend
+pnpm install
 npm start
 cd frontend
-npm run preview
+pnpm install
+npm start
 ```
 
 # Resources
-
 - Node.js
 - Express
 - MongoDB
