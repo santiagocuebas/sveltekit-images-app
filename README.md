@@ -13,7 +13,7 @@ imgShare is a web application to share images, comments, and more.
 # Installation
 ```
 git clone https://github.com/satiagocuebas/sveltekit-images-app
-cd svelte-images
+cd sveltekit-images-app
 cd backend
 pnpm install
 npm start
